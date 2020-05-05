@@ -3,11 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore, applyMiddleware } from 'redux';
+import tasks from './reducers';
+import tasksReducer from './reducers'
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { devToolsEnhancer, composeWithDevTools } from 'redux-devtools-extension';  
+
+const rootReducer = (state = {}, action) => {
+  return {
+    tasks: tasksReducer(state.tasks, action),
+    projects: projectsReducer(state.projects, action),
+  };
+};
+
+const store = createStore(
+  rootReducer,
+//  tasks,
+ // devToolsEnhancer(),
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
