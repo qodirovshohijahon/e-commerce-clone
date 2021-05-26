@@ -111,3 +111,6 @@ mongoose.connect(
 
 
 #### 10. Explain .gitignore & remove hidden files
+
+- git rm -r --cached ./node_modules/
+- git rm -r --cached .env
