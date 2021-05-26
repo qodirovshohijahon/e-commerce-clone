@@ -1,38 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
-import tasks from './reducers';
-import tasksReducer from './reducers'
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { devToolsEnhancer, composeWithDevTools } from 'redux-devtools-extension';  
-
-const rootReducer = (state = {}, action) => {
-  return {
-    tasks: tasksReducer(state.tasks, action),
-    projects: projectsReducer(state.projects, action),
-  };
-};
-
-const store = createStore(
-  rootReducer,
-//  tasks,
- // devToolsEnhancer(),
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const express = require('express')
+const app = express()
+const env = require('dotenv')
+const bodyParser = require("body-parser");
 
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+app.use(bodyParser());
+env.config()
+let config = process.env
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+mongoose.connect(
+    //"mongodb://localhost:27017/test",
+    `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASS}@cluster/${config.MONGO_DB}?retryWrites=true&w=majority`,
+    {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    })
+    .then(() => {
+        console.log(`Database connected: mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASS}@cluster/${config.MONGO_DB}?retryWrites=true&w=majority`)
+    });
+
+
+
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: "Hello from Muzaffar"
+    })
+})
+
+app.post('/data', (req, res) => {
+    res.status(200).json({
+        message: req.body
+    })
+})
+
+app.listen(config.PORT, () => {
+    console.log(`Server is running on port: ${config.PORT}`)
+})

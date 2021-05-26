@@ -1,43 +1,30 @@
 {
-  "name": "parsnip",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
-    "lodash": "^4.17.15",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-scripts": "3.4.1",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
-  },
+  "name": "e-commerce-clone",
+  "version": "1.0.0",
+  "description": "E-Commerce from Flipkart",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qodirovshohijahon/e-commerce-clone.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [
+    "e-commerce",
+    "clone-flipcart"
+  ],
+  "author": "qodirovshohijahon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qodirovshohijahon/e-commerce-clone/issues"
   },
-  "devDependencies": {
-    "enzyme": "^3.11.0",
-    "redux-devtools-extension": "^2.13.8"
+  "homepage": "https://github.com/qodirovshohijahon/e-commerce-clone#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "mongoose": "^5.12.11"
   }
 }
