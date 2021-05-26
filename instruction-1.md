@@ -108,3 +108,6 @@ mongoose.connect(
         console.log(`Database connected: mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASS}@cluster/${config.MONGO_DB}?retryWrites=true&w=majority`)
     });
 ```
+
+
+#### 10. Explain .gitignore & remove hidden files
