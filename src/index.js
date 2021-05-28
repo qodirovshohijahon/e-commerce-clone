@@ -10,8 +10,7 @@ let config = process.env
 
 
 mongoose.connect(
-    //"mongodb://localhost:27017/test",
-    `mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASS}@cluster/${config.MONGO_DB}?retryWrites=true&w=majority`,
+    "mongodb://localhost:27017/admin",
     {
     useNewUrlParser: true,
     useUnifiedTopology: true,
